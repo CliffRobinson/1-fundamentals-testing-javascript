@@ -1,9 +1,5 @@
 const {sumAsync, subtractAsync} = require ('./math')
 
-let result, expected
-
-expect(result).toBe(expected)
-
 test('sumAsync adds numbers', async () => {
     const result = await sumAsync(3,7)
     const expected = 10
@@ -17,23 +13,3 @@ test('subtractAsync subtracts numbers', async () => {
     const expected = 4
     expect(result).toBe(expected)
 })
-
-async function test(title, callback) {
-    try {
-        await callback()
-        console.log(`WOOHOO!! ${title}`)
-    } catch (error) {
-        console.error(`OH NOOOOO! ${title}`)
-        console.error(error)
-    }
-}
-
-function expect(actual) {
-    return {
-        toBe(expected) {
-            if (actual !== expected) {
-                throw new Error (`${actual} is not equal to ${expected}`)
-            }
-        }
-    }
-}
